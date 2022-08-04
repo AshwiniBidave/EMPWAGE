@@ -6,27 +6,31 @@ namespace uc_2
     {
         static void Main(string[] args)
         {
-            int empcheck;
-            int Emp_Rate_per_hour = 20;
+            int Is_part_time = 1;
+            int Is_Full_Time = 2;
             int empHrs = 0;
             int empWage = 0;
-
-            int Is_Full_Time = 1;
+            int Emp_Rate_Per_hour = 20;
             Random random = new Random();
-            empcheck = random.Next(0, 2);
+            int empcheck = random.Next(0, 2);
+
+
 
             if (empcheck == Is_Full_Time)
             {
                 empHrs = 8;
-                Console.WriteLine("Employyee is present");
+            }
+            else if (empcheck == Is_part_time)
+            {
+                empHrs = 4;
             }
             else
             {
 
-                Console.WriteLine("Employee is Absent");
+                empHrs = 0;
 
             }
-            empWage = empHrs * Emp_Rate_per_hour;
+            empWage = empHrs * Emp_Rate_Per_hour;
             Console.WriteLine("empwage is :" + empWage);
         }
     }
