@@ -9,11 +9,12 @@ namespace uc_4
         public const int Emp_Rate_Per_Hour = 20;
         public const int Num_Of_Working_Days = 20;
         public const int Max_Hrs_In_Month = 100;
-        static void Main(string[] args)
+        public static int computeEmpWage()
         {
             int empHour = 0;
             int totalworkingdays = 0;
             int totalEmpHrs = 0;
+
             while (totalEmpHrs <= Max_Hrs_In_Month && totalworkingdays < Num_Of_Working_Days)
             {
                 totalworkingdays++;
@@ -34,13 +35,20 @@ namespace uc_4
                 totalEmpHrs += empHour;
                 Console.WriteLine("Days: " + totalworkingdays + "  Emp hrs :" + empHour);
             }
+            int empWage = empHour * Emp_Rate_Per_Hour;
+            Console.WriteLine("Emp Wage : " + empWage);
+            return empWage;
+        }
 
-            int totalEmpWage = totalEmpHrs + Emp_Rate_Per_Hour;
-            Console.WriteLine("Emp Wage : " + totalEmpWage);
+        static void Main(string[] args)
+        {
+
+
+            computeEmpWage();
 
 
         }
     }
 
-    
+
 }
