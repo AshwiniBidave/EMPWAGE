@@ -1,15 +1,27 @@
 ﻿using System;
 
-namespace uc_4
+namespace uc_8
 {
-    class Program
+    class EmpWageBuilderObject
     {
         public const int Is_Part_Time = 1;
         public const int Is_Full_Time = 2;
-        public const int Emp_Rate_Per_Hour = 20;
-        public const int Num_Of_Working_Days = 20;
-        public const int Max_Hrs_In_Month = 100;
-        public static int computeEmpWage()
+        private String company;
+        private int Emp_Rate_Per_Hour = 20;
+        private int Num_Of_Working_Days = 20;
+        private int Max_Hrs_In_Month = 100;
+        private int totalEmpWage;
+
+
+        public EmpWageBuilderObject(string company, int Emp_Rate_Per_Hour, int Num_Of_Working_Days, int Max_Hrs_In_Month)
+        {
+            this.company = company;
+            this.Emp_Rate_Per_Hour = Emp_Rate_Per_Hour;
+            this.Num_Of_Working_Days = Num_Of_Working_Days;
+            this.Max_Hrs_In_Month = Max_Hrs_In_Month;
+        }
+        public void computeEmpWage()
+
         {
             int empHour = 0;
             int totalworkingdays = 0;
@@ -37,18 +49,25 @@ namespace uc_4
             }
             int empWage = empHour * Emp_Rate_Per_Hour;
             Console.WriteLine("Emp Wage : " + empWage);
-            return empWage;
+            
+        }
+        public string toString()
+        {
+            return "total company:" + this.company + "is" + this.totalEmpWage;
         }
 
-        static void Main(string[] args)
+        
+
+        private static void Main(string[] args)
         {
 
+            EmpWageBuilderObject dmart=new EmpWageBuilderObject("Dmart", 20, 2, 10);
+            EmpWageBuilderObject reliance = new EmpWageBuilderObject("Reliance", 20, 2, 10);
 
-            computeEmpWage();
-
-
+           
         }
+
     }
 
-
+    
 }
