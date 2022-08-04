@@ -1,37 +1,36 @@
 ﻿using System;
 
-namespace uc_2
+namespace uc_4
 {
     class Program
     {
+        public const int Is_Part_Time = 1;
+        public const int Is_Full_Time = 2;
+        public const int Emp_Rate_Per_Hour = 20;
+
         static void Main(string[] args)
         {
-            int Is_part_time = 1;
-            int Is_Full_Time = 2;
-            int empHrs = 0;
+
+
+            int empHour = 0;
             int empWage = 0;
-            int Emp_Rate_Per_hour = 20;
             Random random = new Random();
-            int empcheck = random.Next(0, 2);
-
-
-
-            if (empcheck == Is_Full_Time)
+            int empcheck = random.Next(0, 3);
+            switch (empcheck)
             {
-                empHrs = 8;
+                case Is_Part_Time:
+                    empHour = 4;
+                    break;
+                case Is_Full_Time:
+                    empHour = 8;
+                    break;
+                default:
+                    empHour = 0;
+                    break;
             }
-            else if (empcheck == Is_part_time)
-            {
-                empHrs = 4;
-            }
-            else
-            {
+            empWage = empHour * Emp_Rate_Per_Hour;
+            Console.WriteLine("Emp Wage : " + empWage);
 
-                empHrs = 0;
-
-            }
-            empWage = empHrs * Emp_Rate_Per_hour;
-            Console.WriteLine("empwage is :" + empWage);
         }
     }
 }
